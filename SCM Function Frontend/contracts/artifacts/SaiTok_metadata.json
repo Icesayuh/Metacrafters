@@ -162,7 +162,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Functions&Errors/ErrorHandlingSaiTok.sol": "SaiTok"
+			"SCM Function Frontend/contracts/SaiTok.sol": "SaiTok"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -176,7 +176,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"Functions&Errors/ErrorHandlingSaiTok.sol": {
+		"SCM Function Frontend/contracts/SaiTok.sol": {
 			"keccak256": "0xef4ae8af7cc61bad3c9183dd6b33f1da021e13d1d0aaefc8c08ac89b4ebe3d8a",
 			"license": "MIT",
 			"urls": [
