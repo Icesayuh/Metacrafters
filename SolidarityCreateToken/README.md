@@ -15,8 +15,7 @@ The `SaiTok` contract allows for the creation (minting) and destruction (burning
 
 ### Executing the Program
 
-To run this program, you can use Remix, an online Solidity IDE. Follow these steps to get started:
+To run this program, you can use Remix, an online Solidity IDE. 
 
-1. Go to the Remix website at [https://remix.ethereum.org/](https://remix.ethereum.org/).
-2. Create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `SaiTok.sol`).
-3. Copy and paste the following code into the file:
+## Authors
+Isaiah Ezekiel E. Guevarra | 202110093
