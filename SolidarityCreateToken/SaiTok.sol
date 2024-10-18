@@ -1,22 +1,34 @@
-# SaiTok Token
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
 
-This Solidity program implements a simple ERC20-like token contract named "SaiTok". The purpose of this contract is to allow users to mint and burn tokens, providing a basic framework for token management on the Ethereum blockchain.
+contract SaiTok {
+    // Public variables that store information about my token
+    string public tokenName = "SaiTok";
+    string public tokenSymbol = "SAI";
+    uint256 public totalTokenSupply = 0; //will grow through minting
 
-## Description
+    // Mapping of addresses to balances
+    mapping(address => uint256) public accountBalance;
 
-The `SaiTok` contract allows for the creation (minting) and destruction (burning) of tokens. It maintains a total supply of tokens and tracks the balance of each account. This contract serves as a foundational example for those looking to understand token creation and management in Solidity.
+    // Function to create new tokens (mint)
+    function createTokens(address recipient, uint256 value) public {
+        // Check if the value is positive
+        require(value > 0, "Must create a positive amount of tokens");
+        // Increase the total token supply
+        totalTokenSupply += value;
+        // Increase the balance of the recipient address
+        accountBalance[recipient] += value;
+    }
 
-### Key Features
-- **Minting Tokens**: Users can create new tokens and assign them to a specified address.
-- **Burning Tokens**: Users can destroy tokens from their own balance, reducing the total supply.
-- **Public Variables**: The contract exposes the token name, symbol, and total supply for easy access.
-
-## Getting Started
-
-### Executing the Program
-
-To run this program, you can use Remix, an online Solidity IDE. Follow these steps to get started:
-
-1. Go to the Remix website at [https://remix.ethereum.org/](https://remix.ethereum.org/).
-2. Create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a `.sol` extension (e.g., `SaiTok.sol`).
-3. Copy and paste the following code into the file:
+    // Function to destroy tokens (burn)
+    function destroyTokens(address owner, uint256 value) public {
+        // Check if the value is positive
+        require(value > 0, "Must destroy a positive amount of tokens");
+        // Check if the balance of the owner is sufficient
+        require(accountBalance[owner] >= value, "Not enough tokens to destroy");
+        // Decrease the total token supply
+        totalTokenSupply -= value;
+        // Decrease the balance of the owner address
+        accountBalance[owner] -= value;
+    }
+}
